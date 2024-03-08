@@ -1,0 +1,10 @@
+{
+    "extends": "@diia-inhouse/configs/tsconfig",
+    "compilerOptions": {
+        "baseUrl": "../",
+        "noEmit": true,
+        "strict": true,
+        "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }]
+    },
+    "include": ["./**/*"]
+}
