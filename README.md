@@ -26,7 +26,7 @@ This repository contains the package which provides functionality for analytics 
 Example:
 
 ```
-git clone https://github.com/diia-open-source/pkg-analytics.git
+git clone https://github.com/diia-open-source/be-pkg-analytics.git pkg-analytics
 ```
 
 ---

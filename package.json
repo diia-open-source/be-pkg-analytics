@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "1.54.0",
+    "version": "1.54.1",
     "description": "Analytics utils",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
