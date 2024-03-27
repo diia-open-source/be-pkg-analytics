@@ -11,8 +11,9 @@ import { AnalyticsActionResult, AnalyticsActionType, AnalyticsCategory, Analytic
 import { acquirerAnalyticsData, analyticsData, notificationAnalyticsData, userAnalyticsData } from '../../mocks/analyticsData'
 
 describe(`${AnalyticsService.name} service`, () => {
+    // @ts-ignore
     const identifierService = new IdentifierService({ salt: 'salt' })
-    const testKit = new TestKit(identifierService)
+    const testKit = new TestKit(/*identifierService*/)
 
     const AsyncLocalStorageMock = mockClass(AsyncLocalStorage)
     const asyncLocalStorage = new AsyncLocalStorageMock<AlsData>()
