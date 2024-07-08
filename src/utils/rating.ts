@@ -109,6 +109,7 @@ export class RatingUtils {
         category: RatingCategory,
         chipParams: ChipParams<T>,
         textParams?: TextParams,
+        resourceId?: string,
     ): RatingForm {
         const { title, ratingLabel, chipLabels, chipDescription, commentLabel, commentHint, mainButton } = textParams || {}
         const { chipsRateGroups = [], chipValueMap, chipBlockRateGroups } = chipParams
@@ -117,6 +118,7 @@ export class RatingUtils {
 
         return {
             formCode,
+            resourceId,
             title: title || 'Поділіться враженнями',
             rating: {
                 label: ratingLabel || this.ratingLabelMap[category],
@@ -149,13 +151,14 @@ export class RatingUtils {
                     return {
                         rate,
                         emoji,
-                        chip: chipItems.length
-                            ? {
-                                  label: chipLabels?.[rate] || this.chipLabelMap[rate],
-                                  description: chipDescription ?? 'Оберіть один або кілька варіантів.',
-                                  chips: chipItems,
-                              }
-                            : { label: '', description: '', chips: [] },
+                        chip:
+                            chipItems.length > 0
+                                ? {
+                                      label: chipLabels?.[rate] || this.chipLabelMap[rate],
+                                      description: chipDescription ?? 'Оберіть один або кілька варіантів.',
+                                      chips: chipItems,
+                                  }
+                                : { label: '', description: '', chips: [] },
                     }
                 }),
             },

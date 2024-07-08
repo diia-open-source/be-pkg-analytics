@@ -1,4 +1,4 @@
-import { DocumentType, NotificationTemplateParams, PublicServiceKebabCaseCode } from '@diia-inhouse/types'
+import { NotificationTemplateParams } from '@diia-inhouse/types'
 
 export enum RatingCategory {
     PublicService = 'public-service',
@@ -97,7 +97,7 @@ export enum RatingChipCommon {
     PartnersInteraction = 'partnersInteraction',
 }
 
-export type RatingServiceCode = PublicServiceKebabCaseCode | DocumentType | DiiaIdServiceCode
+export type RatingServiceCode = DiiaIdServiceCode | string
 
 /** @deprecated */
 export enum RatingChip {
@@ -165,6 +165,33 @@ export enum RatingChip {
     UsePlastic = 'usePlastic',
     NotUsePlastic = 'notUsePlastic',
     DocumentNotDisplayedSometimes = 'documentNotDisplayedSometimes',
+
+    // Office
+    GoogleServices = 'googleServices',
+    ForwardingFromApplication = 'forwardingFromApplication',
+    NotFindColleagues = 'notFindColleagues',
+    MissingUnit = 'missingUnit',
+
+    // Residence registration
+    ProblemsApproval = 'problemsApproval',
+    QrCodeError = 'qrCodeError',
+    ApplicationSubmission = 'applicationSubmission',
+
+    // Deposit guarantee payments
+    BadBankInteraction = 'badBankInteraction',
+    NoLiquidatedBank = 'noLiquidatedBank',
+    AccountOpeningProblems = 'accountOpeningProblems',
+    BankInteraction = 'bankInteraction',
+
+    // Award
+    SetUpNotifications = 'setUpNotifications',
+    AddPostOffices = 'addPostOffices',
+    ImproveDelivery = 'improveDelivery',
+    AwardOffline = 'awardOffline',
+    EverythingYouDo = 'everythingYouDo',
+    ConvenientDelivery = 'convenientDelivery',
+    DeleteFunction = 'deleteFunction',
+    OnlineOfflineVersions = 'onlineOfflineVersions',
 }
 
 export enum RatingScore {
@@ -288,6 +315,10 @@ export enum StaticScreenCode {
     QuizArchive = 'quizArchive',
     QuizDetailsActive = 'quizDetailsActive',
     QuizDetailsClose = 'quizDetailsClose',
+    OfficialsPoll = 'officialsPoll',
+    OfficialsWorkspace = 'officialsWorkspace',
+    OfficialsBadges = 'officialsBadges',
+    OfficialsSearchColleagues = 'officialsSearchColleagues',
     BenefitsConfirmation = 'benefitsConfirmation',
     OwnersConfirmation = 'ownersConfirmation',
     CourtCasesDetails = 'courtCasesDetails',
@@ -311,6 +342,7 @@ export enum StaticScreenCode {
     MapPointDetails = 'mapPointDetails',
     TargetFeedbackInvincibility = 'targetFeedbackInvincibility',
     TargetFeedbackShelters = 'targetFeedbackShelters',
+    Specialities = 'specialities',
     AvailableBonds = 'availableBonds',
     AvailableBondsPartners = 'availableBondsPartners',
     AvailableBondsPartnersCart = 'availableBondsPartnersCart',
@@ -320,6 +352,8 @@ export enum StaticScreenCode {
     RepeatedDeliveryMethodsOfObtaining = 'repeatedDeliveryMethodsOfObtaining',
     DepartmentSelection = 'departmentSelection',
     DeliveryAddressDefinition = 'deliveryAddressDefinition',
+    ConstructingStartMessage = 'constructingStartMessage',
+    ConstructingCompletionMessage = 'constructingCompletionMessage',
 }
 
 export type RatingFormCode = RatingServiceCode | CustomRatingFormCode

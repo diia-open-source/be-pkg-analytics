@@ -1,8 +1,7 @@
-import { AsyncLocalStorage } from 'async_hooks'
+import { AsyncLocalStorage } from 'node:async_hooks'
 
 import { ObjectId } from 'bson'
 
-import { IdentifierService } from '@diia-inhouse/crypto'
 import Logger from '@diia-inhouse/diia-logger'
 import TestKit, { mockClass } from '@diia-inhouse/test'
 import { AlsData } from '@diia-inhouse/types'
@@ -11,8 +10,7 @@ import { AnalyticsActionResult, AnalyticsActionType, AnalyticsCategory, Analytic
 import { acquirerAnalyticsData, analyticsData, notificationAnalyticsData, userAnalyticsData } from '../../mocks/analyticsData'
 
 describe(`${AnalyticsService.name} service`, () => {
-    const identifierService = new IdentifierService({ salt: 'salt' })
-    const testKit = new TestKit(identifierService)
+    const testKit = new TestKit()
 
     const AsyncLocalStorageMock = mockClass(AsyncLocalStorage)
     const asyncLocalStorage = new AsyncLocalStorageMock<AlsData>()
@@ -270,10 +268,11 @@ describe(`${AnalyticsService.name} service`, () => {
             const category = AnalyticsCategory.Auth
             const actionType = AnalyticsActionType.Check
             const actionResult = AnalyticsActionResult.Inactive
+            const store = undefined
 
             const loggerSpy = jest.spyOn(logger, 'fatal')
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(undefined)
+            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(store)
 
             analyticsService.log(category, actionType, actionResult, analyticsData)
 

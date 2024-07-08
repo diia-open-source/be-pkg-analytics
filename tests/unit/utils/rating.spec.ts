@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'node:crypto'
 
 import { ChipsRateGroup, CustomRatingFormCode, RatingCategory, RatingForm, RatingScore, RatingUtils } from '../../../src'
 
