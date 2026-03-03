@@ -2,10 +2,8 @@
     "extends": "@diia-inhouse/configs/tsconfig",
     "compilerOptions": {
         "outDir": "dist",
-        "declaration": true,
         "declarationDir": "dist/types",
-        "baseUrl": ".",
-        "strict": true
+        "baseUrl": "."
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]

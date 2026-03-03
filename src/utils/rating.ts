@@ -1,13 +1,6 @@
-import {
-    ChipParams,
-    RatingCategory,
-    RatingChipCommon,
-    RatingForm,
-    RatingFormCode,
-    RatingItem,
-    RatingScore,
-    TextParams,
-} from '../interfaces'
+import { RatingForm, RatingItem } from '@diia-inhouse/types'
+
+import { ChipParams, RatingCategory, RatingChipCommon, RatingFormCode, RatingScore, TextParams } from '../interfaces'
 
 export class RatingUtils {
     private readonly chipCodeToValueDefaultMap: Record<RatingChipCommon, string> = {
@@ -78,6 +71,8 @@ export class RatingUtils {
         [RatingChipCommon.NotUnderstandingWhatNext]: 'Не розумію, що буде далі',
         [RatingChipCommon.WrongfulRefusal]: 'Неправомірна відмова',
         [RatingChipCommon.UploadingPhoto]: 'Завантаження фото',
+        [RatingChipCommon.BankInteraction]: 'Взаємодія з банком',
+        [RatingChipCommon.BadBankInteraction]: 'Взаємодія з банком',
         [RatingChipCommon.LimitedSelectionCities]: 'Обмежений вибір міст',
         [RatingChipCommon.BadPartnersInteraction]: 'Взаємодія з партнерами',
         [RatingChipCommon.ContributionVictory]: 'Внесок у перемогу',
@@ -110,6 +105,7 @@ export class RatingUtils {
         chipParams: ChipParams<T>,
         textParams?: TextParams,
         resourceId?: string,
+        showInAppReview = false,
     ): RatingForm {
         const { title, ratingLabel, chipLabels, chipDescription, commentLabel, commentHint, mainButton } = textParams || {}
         const { chipsRateGroups = [], chipValueMap, chipBlockRateGroups } = chipParams
@@ -123,12 +119,12 @@ export class RatingUtils {
             rating: {
                 label: ratingLabel || this.ratingLabelMap[category],
                 items: [
-                    { rate: RatingScore.Awful, emoji: '😡' },
-                    { rate: RatingScore.Bad, emoji: '😢' },
-                    { rate: RatingScore.Ok, emoji: '😐' },
-                    { rate: RatingScore.Good, emoji: '😁' },
-                    { rate: RatingScore.Excellent, emoji: '😍' },
-                ].map<RatingItem<T>>(({ rate, emoji }) => {
+                    { rate: RatingScore.Awful, emoji: '😡', accessibilityDescription: 'Дуже незадоволений' },
+                    { rate: RatingScore.Bad, emoji: '😢', accessibilityDescription: 'Незадоволений' },
+                    { rate: RatingScore.Ok, emoji: '😐', accessibilityDescription: 'Нейтральне враження' },
+                    { rate: RatingScore.Good, emoji: '😁', accessibilityDescription: 'Задоволений' },
+                    { rate: RatingScore.Excellent, emoji: '😍', accessibilityDescription: 'Дуже задоволений' },
+                ].map(({ rate, emoji, accessibilityDescription }): RatingItem => {
                     if (chipBlockRateGroups) {
                         const chipsBlockGroup = chipBlockRateGroups.find((group) => group.rate.includes(rate))
                         const { chipBlocks = [] } = chipsBlockGroup || {}
@@ -136,6 +132,7 @@ export class RatingUtils {
                         return {
                             rate,
                             emoji,
+                            accessibilityDescription,
                             chip: { label: '', description: '', chips: [] },
                             chipBlocks,
                         }
@@ -151,6 +148,7 @@ export class RatingUtils {
                     return {
                         rate,
                         emoji,
+                        accessibilityDescription,
                         chip:
                             chipItems.length > 0
                                 ? {
@@ -159,6 +157,7 @@ export class RatingUtils {
                                       chips: chipItems,
                                   }
                                 : { label: '', description: '', chips: [] },
+                        chipBlocks: [],
                     }
                 }),
             },
@@ -167,6 +166,7 @@ export class RatingUtils {
                 hint: commentHint || 'Розкажіть більше про враження (необовʼязково)',
             },
             mainButton: mainButton || 'Надіслати відгук',
+            showInAppReview,
         }
     }
 }

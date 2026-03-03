@@ -1,6 +1,8 @@
 import { randomUUID } from 'node:crypto'
 
-import { ChipsRateGroup, CustomRatingFormCode, RatingCategory, RatingForm, RatingScore, RatingUtils } from '../../../src'
+import { RatingForm } from '@diia-inhouse/types'
+
+import { ChipsRateGroup, CustomRatingFormCode, RatingCategory, RatingScore, RatingUtils } from '../../../src'
 
 describe(`${RatingUtils.name} service`, () => {
     const ratingUtilsService = new RatingUtils()
@@ -50,6 +52,7 @@ describe(`${RatingUtils.name} service`, () => {
                         {
                             rate: RatingScore.Awful,
                             emoji: expect.any(String),
+                            accessibilityDescription: 'Дуже незадоволений',
                             chip: {
                                 label: 'awfulChipLabel',
                                 description: expect.any(String),
@@ -58,10 +61,12 @@ describe(`${RatingUtils.name} service`, () => {
                                     { code: 'chip2', name: 'val2' },
                                 ],
                             },
+                            chipBlocks: [],
                         },
                         {
                             rate: RatingScore.Bad,
                             emoji: expect.any(String),
+                            accessibilityDescription: 'Незадоволений',
                             chip: {
                                 label: 'badChipLabel',
                                 description: expect.any(String),
@@ -70,10 +75,12 @@ describe(`${RatingUtils.name} service`, () => {
                                     { code: 'chip2', name: 'val2' },
                                 ],
                             },
+                            chipBlocks: [],
                         },
                         {
                             rate: RatingScore.Ok,
                             emoji: expect.any(String),
+                            accessibilityDescription: 'Нейтральне враження',
                             chip: {
                                 label: expect.any(String),
                                 description: expect.any(String),
@@ -82,10 +89,12 @@ describe(`${RatingUtils.name} service`, () => {
                                     { code: 'chip2', name: 'val2' },
                                 ],
                             },
+                            chipBlocks: [],
                         },
                         {
                             rate: RatingScore.Good,
                             emoji: expect.any(String),
+                            accessibilityDescription: 'Задоволений',
                             chip: {
                                 label: expect.any(String),
                                 description: expect.any(String),
@@ -95,10 +104,12 @@ describe(`${RatingUtils.name} service`, () => {
                                     { code: 'chip5', name: 'val5' },
                                 ],
                             },
+                            chipBlocks: [],
                         },
                         {
                             rate: RatingScore.Excellent,
                             emoji: expect.any(String),
+                            accessibilityDescription: 'Дуже задоволений',
                             chip: {
                                 label: expect.any(String),
                                 description: expect.any(String),
@@ -108,6 +119,7 @@ describe(`${RatingUtils.name} service`, () => {
                                     { code: 'chip5', name: 'val5' },
                                 ],
                             },
+                            chipBlocks: [],
                         },
                     ],
                 },
@@ -115,6 +127,8 @@ describe(`${RatingUtils.name} service`, () => {
                     label: expect.any(String),
                     hint: expect.any(String),
                 },
+                resourceId: undefined,
+                showInAppReview: false,
                 mainButton: expect.any(String),
             })
         })

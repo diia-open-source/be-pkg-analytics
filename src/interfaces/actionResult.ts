@@ -20,6 +20,4 @@ export enum AnalyticsActionResult {
     Available = 'available',
     NotAvailable = 'notAvailable',
     NewUser = 'newUser',
-    Yes = 'yes',
-    No = 'no',
 }

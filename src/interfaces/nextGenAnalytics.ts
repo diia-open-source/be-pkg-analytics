@@ -1,5 +1,3 @@
-import { ObjectId } from 'bson'
-
 import { AnalyticsDevice } from './device'
 
 export interface NextGenAnalytics {
@@ -10,7 +8,7 @@ export interface NextGenAnalytics {
         result: string
     }
     identifier?: string
-    acquirer?: ObjectId
+    acquirer?: string
     appVersion?: string
     device?: AnalyticsDevice
     data?: Record<string, unknown>

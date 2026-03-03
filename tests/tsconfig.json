@@ -1,10 +1,18 @@
 {
-    "extends": "@diia-inhouse/configs/tsconfig",
+    "extends": "../tsconfig",
     "compilerOptions": {
+        "types": ["vite/client", "vitest/globals"],
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "isolatedModules": true,
         "baseUrl": "../",
-        "noEmit": true,
-        "strict": true,
-        "plugins": [{ "transform": "typescript-transform-paths" }, { "transform": "typescript-transform-paths", "afterDeclarations": true }]
+        "paths": {
+            "@services/*": ["src/services/*"],
+            "@interfaces/*": ["src/interfaces/*"],
+            "@src/*": ["src/*"],
+            "@tests/*": ["tests/*"]
+        },
+        "noEmit": true
     },
-    "include": ["./**/*"]
+    "include": ["./**/*", "../vitest.config.mts"]
 }

@@ -16,7 +16,6 @@ export enum AnalyticsActionType {
     Validation = 'validation',
     Check = 'check',
     GetGroups = 'getGroups',
-    IsGroupAvailable = 'IsGroupAvailable',
     SignUp = 'signUp',
     SignOut = 'signOut',
 }

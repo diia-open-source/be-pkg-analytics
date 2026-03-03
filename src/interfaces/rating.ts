@@ -1,4 +1,4 @@
-import { NotificationTemplateParams } from '@diia-inhouse/types'
+import { NotificationTemplateParams, RatingForm } from '@diia-inhouse/types'
 
 export enum RatingCategory {
     PublicService = 'public-service',
@@ -89,6 +89,8 @@ export enum RatingChipCommon {
     NotUnderstandingWhatNext = 'notUnderstandingWhatNext',
     WrongfulRefusal = 'wrongfulRefusal',
     UploadingPhoto = 'uploadingPhoto',
+    BankInteraction = 'bankInteraction',
+    BadBankInteraction = 'badBankInteraction',
 
     // Military bonds
     LimitedSelectionCities = 'limitedSelectionCities',
@@ -225,6 +227,7 @@ export enum CustomRatingFormCode {
     TargetFeedbackShelters = 'targetFeedbackShelters',
     TargetFeedbackInvincibility = 'targetFeedbackInvincibility',
     MilitaryBondsDoneRefuse = 'militaryBondsDoneRefuse',
+    SmartMobilizationSuccess = 'smartMobilizationSuccess',
 }
 
 export type ScreenCode = StaticScreenCode | string
@@ -260,7 +263,6 @@ export enum StaticScreenCode {
     StatusCancelProperUser = 'statusCancelProperUser',
     ApplicationCancelProperUser = 'applicationCancelProperUser',
     LedSelection = 'ledSelection',
-    LedExchange = 'ledExchange',
     PostOfficeSelection = 'postOfficeSelection',
     DocumentTypeSelection = 'documentTypeSelection',
     ResidenceCert = 'residenceCert',
@@ -354,39 +356,17 @@ export enum StaticScreenCode {
     DeliveryAddressDefinition = 'deliveryAddressDefinition',
     ConstructingStartMessage = 'constructingStartMessage',
     ConstructingCompletionMessage = 'constructingCompletionMessage',
+    OnlyDuringBlackout = 'onlyDuringBlackout',
+    MobileOperators = 'mobileOperators',
+    TypeOfConnection = 'typeOfConnection',
+    Place = 'place',
 }
 
 export type RatingFormCode = RatingServiceCode | CustomRatingFormCode
 
-export interface RatingForm<T = string> {
-    formCode?: RatingFormCode
-    resourceId?: string
-    title: string
-    rating: {
-        label: string
-        items: RatingItem<T>[]
-    }
-    comment: {
-        label: string
-        hint: string
-    }
-    mainButton: string
-}
-
-export interface RatingItem<T = string> {
-    rate: RatingScore
-    emoji: string
-    chip: {
-        label: string
-        description: string
-        chips: RatingChipMeta<T>[]
-    }
-    chipBlocks?: ChipBlock<T>[]
-}
-
 export interface ChipBlock<T> {
     label: string
-    description?: string[]
+    description?: string
     chips: RatingChipMeta<T>[]
 }
 
@@ -422,6 +402,12 @@ export interface RateServiceEventPayload {
     resourceId?: string
     notificationParams?: NotificationTemplateParams
     delay?: number
+    /**
+     * delay in milliseconds before resending a rating push.
+     * if a new rating push arrives before this time expires, it is ignored.
+     * @type {number|undefined}
+     */
+    throttleMs?: number
 }
 
 export interface ChipsRateGroup<T> {
@@ -457,7 +443,7 @@ export interface GetUserInitiativeRatingFormRequest {
 
 export interface GetUserInitiativeRatingFormResponse {
     ratingForm?: RatingForm
-    processCode?: RatingAvailabilityProcessCode
+    processCode?: number
 }
 
 export interface IsUserInitiativeRatingAvailableRequest {
@@ -468,6 +454,7 @@ export interface IsUserInitiativeRatingAvailableRequest {
     resourceId?: string
     checkTaxpayerCard?: boolean
     ignoreScreenCodes?: ScreenCode[]
+    ignoreTimeout?: boolean
 }
 
 export interface IsByRequestRatingAvailableRequest {

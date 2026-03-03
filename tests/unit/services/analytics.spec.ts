@@ -1,9 +1,10 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 import { ObjectId } from 'bson'
+import { mock } from 'vitest-mock-extended'
 
 import Logger from '@diia-inhouse/diia-logger'
-import TestKit, { mockClass } from '@diia-inhouse/test'
+import TestKit from '@diia-inhouse/test'
 import { AlsData } from '@diia-inhouse/types'
 
 import { AnalyticsActionResult, AnalyticsActionType, AnalyticsCategory, AnalyticsService } from '../../../src'
@@ -12,10 +13,10 @@ import { acquirerAnalyticsData, analyticsData, notificationAnalyticsData, userAn
 describe(`${AnalyticsService.name} service`, () => {
     const testKit = new TestKit()
 
-    const AsyncLocalStorageMock = mockClass(AsyncLocalStorage)
+    const AsyncLocalStorageMock = mock(AsyncLocalStorage)
     const asyncLocalStorage = new AsyncLocalStorageMock<AlsData>()
 
-    const MockedLogger = mockClass(Logger)
+    const MockedLogger = mock(Logger)
     const logger: Logger = new MockedLogger()
 
     const analyticsService = new AnalyticsService(logger, asyncLocalStorage)
@@ -33,7 +34,7 @@ describe(`${AnalyticsService.name} service`, () => {
         }
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it.each([
@@ -60,7 +61,7 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.acquirerLog(category, acquirerId, actionType, actionResult, headers, data)
 
@@ -81,7 +82,7 @@ describe(`${AnalyticsService.name} service`, () => {
         }
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it.each([
@@ -111,7 +112,7 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.userAcquirerLog(category, userIdentifier, acquirerId, actionType, actionResult, headers, data)
 
@@ -123,7 +124,7 @@ describe(`${AnalyticsService.name} service`, () => {
         const mockedCurrentDate = new Date('2023-07-01')
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it.each([
@@ -155,7 +156,7 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.notificationLog(actionType, actionResult, headers, data)
 
@@ -167,7 +168,7 @@ describe(`${AnalyticsService.name} service`, () => {
         const mockedCurrentDate = new Date('2023-07-01')
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it.each([
@@ -202,7 +203,7 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.userLog(actionType, actionResult, userIdentifier, headers, data)
 
@@ -214,7 +215,7 @@ describe(`${AnalyticsService.name} service`, () => {
         const mockedCurrentDate = new Date('2023-07-01')
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it.each([
@@ -249,7 +250,7 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.authLog(actionType, actionResult, userIdentifier, headers, data)
 
@@ -261,7 +262,7 @@ describe(`${AnalyticsService.name} service`, () => {
         const mockedCurrentDate = new Date('2023-07-05')
 
         beforeEach(() => {
-            jest.useFakeTimers().setSystemTime(mockedCurrentDate)
+            vi.useFakeTimers().setSystemTime(mockedCurrentDate)
         })
 
         it('should log error if no context found in async local storage', () => {
@@ -270,9 +271,9 @@ describe(`${AnalyticsService.name} service`, () => {
             const actionResult = AnalyticsActionResult.Inactive
             const store = undefined
 
-            const loggerSpy = jest.spyOn(logger, 'fatal')
+            const loggerSpy = vi.spyOn(logger, 'fatal')
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(store)
+            vi.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(store)
 
             analyticsService.log(category, actionType, actionResult, analyticsData)
 
@@ -307,9 +308,9 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
+            vi.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.log(category, actionType, actionResult, analyticsData)
 
@@ -343,9 +344,9 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
+            vi.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.log(category, actionType, actionResult, analyticsData)
 
@@ -385,9 +386,9 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
+            vi.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.log(category, actionType, actionResult, analyticsData)
 
@@ -422,9 +423,9 @@ describe(`${AnalyticsService.name} service`, () => {
                 },
             }
 
-            jest.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
+            vi.spyOn(asyncLocalStorage, 'getStore').mockReturnValue(alsData)
 
-            const loggerSpy = jest.spyOn(logger, 'info')
+            const loggerSpy = vi.spyOn(logger, 'info')
 
             analyticsService.log(category, actionType, actionResult)
 

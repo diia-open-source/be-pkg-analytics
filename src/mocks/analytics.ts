@@ -1,4 +1,6 @@
-import { RatingChipMeta, RatingForm, RatingScore } from '../interfaces'
+import { RatingForm } from '@diia-inhouse/types'
+
+import { RatingChipMeta, RatingScore } from '../interfaces'
 
 export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingForm {
     const chips: RatingChipMeta[] = [
@@ -12,7 +14,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
         },
     ]
 
-    return <RatingForm>{
+    return {
         title: 'Поділіться враженнями',
         rating: {
             label: 'Задоволені замовленням та отриманням послуги в Дії?',
@@ -25,6 +27,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
                         description: 'Оберіть один або кілька варіантів.',
                         chips,
                     },
+                    chipBlocks: [],
                 },
                 {
                     rate: RatingScore.Bad,
@@ -34,6 +37,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
                         description: 'Оберіть один або кілька варіантів.',
                         chips,
                     },
+                    chipBlocks: [],
                 },
                 {
                     rate: RatingScore.Ok,
@@ -43,6 +47,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
                         description: 'Оберіть один або кілька варіантів.',
                         chips,
                     },
+                    chipBlocks: [],
                 },
                 {
                     rate: RatingScore.Good,
@@ -52,6 +57,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
                         description: 'Оберіть один або кілька варіантів.',
                         chips,
                     },
+                    chipBlocks: [],
                 },
                 {
                     rate: RatingScore.Excellent,
@@ -61,6 +67,7 @@ export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingF
                         description: 'Оберіть один або кілька варіантів.',
                         chips,
                     },
+                    chipBlocks: [],
                 },
             ],
         },
