@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "1.72.11",
+    "version": "1.72.12",
     "description": "Analytics utils",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -34,9 +34,9 @@
     },
     "devDependencies": {
         "@diia-inhouse/configs": "6.1.1",
-        "@diia-inhouse/diia-logger": "3.19.3",
+        "@diia-inhouse/diia-logger": "3.19.4",
         "@diia-inhouse/eslint-config": "8.8.0",
-        "@diia-inhouse/test": "7.3.11",
+        "@diia-inhouse/test": "7.3.12",
         "@diia-inhouse/types": "11.7.0",
         "@diia-inhouse/utils": "5.3.9",
         "@types/bson": "4.2.4",
