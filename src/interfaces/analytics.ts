@@ -1,10 +1,10 @@
 import { ObjectId } from 'bson'
 
-import { AnalyticsActionResult } from './actionResult'
-import { AnalyticsActionType } from './actionType'
-import { AnalyticsCategory } from './categories'
-import { AcquirerAnalyticsData, NotificationAnalyticsData, UserAnalyticsData } from './data'
-import { AnalyticsDevice } from './device'
+import { AnalyticsActionResult } from './actionResult.js'
+import { AnalyticsActionType } from './actionType.js'
+import { AnalyticsCategory } from './categories.js'
+import { AcquirerAnalyticsData, NotificationAnalyticsData, UserAnalyticsData } from './data.js'
+import { AnalyticsDevice } from './device.js'
 
 interface BaseAnalytics {
     date: string

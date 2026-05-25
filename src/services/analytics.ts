@@ -20,7 +20,7 @@ import {
     NotificationAnalyticsData,
     UserAnalytics,
     UserAnalyticsData,
-} from '../interfaces'
+} from '../interfaces/index.js'
 
 export class AnalyticsService {
     constructor(

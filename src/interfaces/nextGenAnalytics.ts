@@ -1,4 +1,4 @@
-import { AnalyticsDevice } from './device'
+import { AnalyticsDevice } from './device.js'
 
 export interface NextGenAnalytics {
     date: string

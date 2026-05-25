@@ -1,6 +1,6 @@
 import { RatingForm } from '@diia-inhouse/types'
 
-import { RatingChipMeta, RatingScore } from '../interfaces'
+import { RatingChipMeta, RatingScore } from '../interfaces/index.js'
 
 export function getRatingFormMock(ratingForm: Partial<RatingForm> = {}): RatingForm {
     const chips: RatingChipMeta[] = [

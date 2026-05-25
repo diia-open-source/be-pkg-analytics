@@ -1,7 +1,7 @@
-export * from './interfaces'
+export * from './interfaces/index.js'
 
-export * from './services'
+export * from './services/index.js'
 
-export * from './utils'
+export * from './utils/index.js'
 
-export * from './mocks'
+export * from './mocks/index.js'

@@ -1,1 +1,1 @@
-export * from './rating'
+export * from './rating.js'

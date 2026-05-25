@@ -1,6 +1,6 @@
 import { RatingForm, RatingItem } from '@diia-inhouse/types'
 
-import { ChipParams, RatingCategory, RatingChipCommon, RatingFormCode, RatingScore, TextParams } from '../interfaces'
+import { ChipParams, RatingCategory, RatingChipCommon, RatingFormCode, RatingScore, TextParams } from '../interfaces/index.js'
 
 export class RatingUtils {
     private readonly chipCodeToValueDefaultMap: Record<RatingChipCommon, string> = {
@@ -15,7 +15,7 @@ export class RatingUtils {
         [RatingChipCommon.PaymentIssues]: 'Проблеми з оплатою',
         [RatingChipCommon.Delivery]: 'Доставка',
         [RatingChipCommon.ComprehensibleText]: 'Зрозумілі тексти',
-        [RatingChipCommon.NotComprehensibleText]: 'Незрозумілий текст',
+        [RatingChipCommon.NotComprehensibleText]: 'Незрозумілі тексти',
         [RatingChipCommon.EasyFast]: 'Легко і швидко',
         [RatingChipCommon.NotEnoughHints]: 'Мало підказок',
         [RatingChipCommon.EnoughHints]: 'Вдосталь підказок',

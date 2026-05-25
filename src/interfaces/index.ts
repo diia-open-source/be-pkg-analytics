@@ -1,15 +1,15 @@
-export * from './actionResult'
+export * from './actionResult.js'
 
-export * from './actionType'
+export * from './actionType.js'
 
-export * from './analytics'
+export * from './analytics.js'
 
-export * from './categories'
+export * from './categories.js'
 
-export * from './data'
+export * from './data.js'
 
-export * from './device'
+export * from './device.js'
 
-export * from './nextGenAnalytics'
+export * from './nextGenAnalytics.js'
 
-export * from './rating'
+export * from './rating.js'
