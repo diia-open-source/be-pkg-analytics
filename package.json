@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "2.3.7",
+    "version": "2.3.8",
     "description": "Analytics utils",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -33,9 +33,9 @@
         "@diia-inhouse/utils": ">=6.0.0"
     },
     "devDependencies": {
-        "@diia-inhouse/configs": "7.0.0",
+        "@diia-inhouse/configs": "7.0.1",
         "@diia-inhouse/diia-logger": "4.3.9",
-        "@diia-inhouse/oxc-config": "1.10.1",
+        "@diia-inhouse/oxc-config": "1.10.2",
         "@diia-inhouse/test": "8.2.6",
         "@diia-inhouse/types": "13.2.1",
         "@diia-inhouse/utils": "6.0.18",
