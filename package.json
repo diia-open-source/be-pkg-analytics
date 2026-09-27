@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "2.3.73",
+    "version": "2.3.74",
     "description": "Analytics utils",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -33,12 +33,12 @@
         "@diia-inhouse/utils": ">=6.0.0"
     },
     "devDependencies": {
-        "@diia-inhouse/configs": "7.2.1",
-        "@diia-inhouse/diia-logger": "4.5.1",
-        "@diia-inhouse/oxc-config": "3.0.2",
-        "@diia-inhouse/test": "8.3.24",
-        "@diia-inhouse/types": "14.2.13",
-        "@diia-inhouse/utils": "6.1.13",
+        "@diia-inhouse/configs": "7.2.2",
+        "@diia-inhouse/diia-logger": "4.5.5",
+        "@diia-inhouse/oxc-config": "3.0.3",
+        "@diia-inhouse/test": "8.3.26",
+        "@diia-inhouse/types": "14.2.14",
+        "@diia-inhouse/utils": "6.1.15",
         "@types/bson": "4.2.4",
         "@types/node": "25.6.2",
         "@vitest/coverage-v8": "4.1.11",
