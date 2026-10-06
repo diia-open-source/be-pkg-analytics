@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "2.3.81",
+    "version": "2.3.82",
     "description": "Analytics utils",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -36,7 +36,7 @@
         "@diia-inhouse/configs": "7.2.2",
         "@diia-inhouse/diia-logger": "4.7.9",
         "@diia-inhouse/oxc-config": "3.2.0",
-        "@diia-inhouse/test": "8.3.34",
+        "@diia-inhouse/test": "8.3.35",
         "@diia-inhouse/types": "14.5.1",
         "@diia-inhouse/utils": "6.1.21",
         "@types/bson": "4.2.4",
