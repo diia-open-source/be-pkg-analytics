@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "2.3.104",
+    "version": "2.3.105",
     "description": "Analytics utils",
     "license": null,
     "author": "diia-team",
@@ -38,7 +38,7 @@
         "@diia-inhouse/oxc-config": "6.1.1",
         "@diia-inhouse/test": "8.4.1",
         "@diia-inhouse/types": "14.11.0",
-        "@diia-inhouse/utils": "6.2.3",
+        "@diia-inhouse/utils": "6.2.5",
         "@types/bson": "4.2.4",
         "@types/node": "25.6.2",
         "@vitest/coverage-v8": "4.1.11",
