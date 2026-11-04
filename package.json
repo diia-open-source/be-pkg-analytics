@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/analytics",
-    "version": "2.3.108",
+    "version": "2.3.110",
     "description": "Analytics utils",
     "license": null,
     "author": "diia-team",
@@ -33,12 +33,12 @@
         "bson": "7.2.0"
     },
     "devDependencies": {
-        "@diia-inhouse/configs": "7.2.3",
-        "@diia-inhouse/diia-logger": "4.7.41",
-        "@diia-inhouse/oxc-config": "6.1.1",
-        "@diia-inhouse/test": "8.4.2",
-        "@diia-inhouse/types": "14.12.0",
-        "@diia-inhouse/utils": "6.2.8",
+        "@diia-inhouse/configs": "7.2.4",
+        "@diia-inhouse/diia-logger": "4.7.42",
+        "@diia-inhouse/oxc-config": "6.1.2",
+        "@diia-inhouse/test": "8.4.3",
+        "@diia-inhouse/types": "14.12.1",
+        "@diia-inhouse/utils": "6.2.11",
         "@types/bson": "4.2.4",
         "@types/node": "25.6.2",
         "@vitest/coverage-v8": "4.1.11",
